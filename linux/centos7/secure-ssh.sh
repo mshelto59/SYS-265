@@ -11,6 +11,7 @@ cat ./id_rsa.pub >> /home/$1/.ssh/authorized_keys
 
 chmod 700 /home/$1/.ssh
 chmod 600 /home/$1/.ssh/authorized_keys
+chown -R $1:$1 /home/$1/.ssh
 
 rm id_rsa.pub
 
