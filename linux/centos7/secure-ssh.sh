@@ -1,8 +1,9 @@
 #!/bin/bash
-useradd $1
+useradd -m -d /home/$1 -s /bin/bash $1
 usermod -aG wheel $1
+usermod -aG sudo $1
 
-wget https://github.com/mshelto59/SYS-265/blob/master/linux/public-keys/id_rsa.pub
+wget https://github.com/mshelto59/SYS-265/raw/master/linux/public-keys/id_rsa.pub
 
 mkdir -p ~/.ssh
 touch ~/.ssh/authorized_keys
