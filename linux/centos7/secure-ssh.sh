@@ -5,7 +5,7 @@ usermod -aG sudo $1
 
 wget https://github.com/mshelto59/SYS-265/raw/master/linux/public-keys/id_rsa.pub
 
-mkdir -p ~/.ssh
+mkdir -p /home/$1/.ssh
 touch /home/$1/.ssh/authorized_keys
 cat ./id_rsa.pub >> /home/$1/.ssh/authorized_keys
 
