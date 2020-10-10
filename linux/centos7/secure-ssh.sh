@@ -9,6 +9,9 @@ mkdir -p /home/$1/.ssh
 touch /home/$1/.ssh/authorized_keys
 cat ./id_rsa.pub >> /home/$1/.ssh/authorized_keys
 
+chmod 700 /home/$1/.ssh
+chmod 600 /home/$1/.ssh/authorized_keys
+
 rm id_rsa.pub
 
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
