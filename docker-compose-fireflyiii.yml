@@ -1,0 +1,34 @@
+#docker version
+version: '3.3'
+services:
+ #config for fireflyiii
+ fireflyiii:
+  image: jc5x/firefly-iii:latest
+  #storage location
+  volumes:
+   - firefly_iii_upload:/var/www/html/storage/upload
+  #.env file name
+  env_file: .env
+  #forward on port 80
+  ports:
+   - 80:8080
+  depends_on:
+   - fireflyiiidb
+ #mariadb
+ fireflyiiidb:
+  image: yobasystems/alpine-mariadb:latest
+  #environment vars
+  environment:
+   #set random root password
+   - MYSQL_RANDOM_ROOT_PASSWORD=yes
+   #mysql creds
+   - MYSQL_USER=(insert username for db)
+   - MYSQL_PASSWORD=(insert password for db)
+   #mysql db name
+   - MYSQL_DATABASE=firefly
+  #mysql db location
+  volumes:
+   - firefly_iii_db:/var/www/html/db
+volumes:
+ firefly_iii_upload:
+ firefly_iii_db:
