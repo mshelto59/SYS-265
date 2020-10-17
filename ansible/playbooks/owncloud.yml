@@ -1,0 +1,11 @@
+---
+ - name: Install Owncloud
+   hosts: owncloud
+   remote_user: deployer
+   vars:
+    owncloud_setup_http: true
+    owncloud_setup_php: true
+    owncloud_setup_db: true
+    owncloud_install_base: true
+   roles:
+    - chris1984.owncloud_role

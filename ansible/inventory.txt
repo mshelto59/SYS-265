@@ -1,0 +1,12 @@
+[owncloud]
+ansible1
+[webmin]
+ansible2
+[windows]
+mgmt01
+[windows:vars]
+ansible_user=matthew.shelto-adm@mshelto.local
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_port=5986

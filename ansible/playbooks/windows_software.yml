@@ -1,0 +1,9 @@
+---
+ - name: install windows applications
+   hosts: windows
+   tasks:
+    - name: Uninstall Firefox and 7zip
+      win_chocolatey:
+       name:
+       - notepadplusplus
+       state: present
